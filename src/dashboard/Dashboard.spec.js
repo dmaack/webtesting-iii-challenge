@@ -4,6 +4,8 @@ import React from 'react';
 import { renderer } from 'react-test-renderer';
 import { render, fireEvent } from 'react-testing-library';
 import Dashboard from './Dashboard';
+import Controls from '../controls/Controls'
+import Display from '../display/Display';
 import { isMainThread } from 'worker_threads';
 
 
@@ -15,10 +17,12 @@ test('Dashboard renders correctly', () => {
 
 // With Training Kit guidance 
 
-// describe('<Dashboard />', () => {
-//     it('should match snapshot', () => {
-//         const tree = renderer.create(<Dashboard />).toJSON();
+describe('<Dashboard />', () => {
+    it('should match snapshot', () => {
+        const tree = renderer.create(<Dashboard />).toJSON();
 
-//         expect(tree).toMatchSnapshot;
-//     })
-// });
+        expect(tree).toMatchSnapshot;
+    })
+});
+
+

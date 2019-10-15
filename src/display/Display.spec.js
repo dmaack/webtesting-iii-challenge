@@ -16,3 +16,13 @@ test('Display renders correctly', () => {
 //         expect(tree).toMatchSnapshot;
 //     })
 // });
+
+
+
+it('Gate defaults to "unlocked" and "open"', () => {
+    const { getByText } = render( <Display /> );
+    const Unlocked = getByText('Unlocked');
+    const Open = getByText('Open');
+    expect(Unlocked).toBe(Unlocked);
+    expect(Open).toBe(Open);
+})
