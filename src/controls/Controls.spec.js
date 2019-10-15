@@ -20,11 +20,31 @@ test('Controls renders correctly', () => {
 // });
 
 
-it('Renders "Lock Gate" and "Close Gate"', () => {
+it('Renders "Lock Gate" and "Close Gate" with added toggle buttons', () => {
     const { getByText } = render( <Controls /> );
     const lockGate = getByText('Lock Gate');
     const closeGate = getByText('Close Gate');
     expect(lockGate).toBe(lockGate);
     expect(closeGate).toBe(closeGate);
+});
 
+
+it('renders change in className when clicked', () => {
+    const { getByText } = render(<Controls closed={true} />);
+    const openClick = getByText('Open Gate');
+    expect(openClick).toBe(openClick);
+})
+
+it('the locked toggle button is disabled if the gate is open', () => {
+    const mockClosed = jest.fn();
+    const { getByText } = render(<Controls mockClosed={mockClosed} />);
+    fireEvent.click(getByText('Lock Gate'));
+    expect(mockClosed).toBe(mockClosed);
+})
+
+it('the closed toggle button is disabled if the gate is locked', () => {
+    const mockLocked = jest.fn();
+    const { getByText } = render(<Controls mockLocked={mockLocked} closed={true} locked={true} />);
+    fireEvent.click(getByText('Open Gate'))
+    expect(mockLocked).toBe(mockLocked);
 })
