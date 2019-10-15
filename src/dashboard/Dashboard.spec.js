@@ -17,12 +17,12 @@ test('Dashboard renders correctly', () => {
 
 // With Training Kit guidance 
 
-describe('<Dashboard />', () => {
-    it('should match snapshot', () => {
-        const tree = renderer.create(<Dashboard />).toJSON();
+// describe('<Dashboard />', () => {
+//     it('should match snapshot', () => {
+//         const tree = renderer.create(<Dashboard />).toJSON();
 
-        expect(tree).toMatchSnapshot;
-    })
-});
+//         expect(tree).toMatchSnapshot;
+//     })
+// });
 
 

@@ -22,8 +22,8 @@ test('Controls renders correctly', () => {
 
 it('Renders "Lock Gate" and "Close Gate" with added toggle buttons', () => {
     const { getByText } = render( <Controls /> );
-    const lockGate = getByText('Lock Gate');
-    const closeGate = getByText('Close Gate');
+    const lockGate = getByText(/lock gate/i);
+    const closeGate = getByText(/close gate/i);
     expect(lockGate).toBe(lockGate);
     expect(closeGate).toBe(closeGate);
 });
@@ -31,7 +31,7 @@ it('Renders "Lock Gate" and "Close Gate" with added toggle buttons', () => {
 
 it('renders change in className when clicked', () => {
     const { getByText } = render(<Controls closed={true} />);
-    const openClick = getByText('Open Gate');
+    const openClick = getByText(/open gate/i);
     expect(openClick).toBe(openClick);
 })
 
